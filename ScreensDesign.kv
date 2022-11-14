@@ -1,0 +1,65 @@
+<HomePage>:
+    orientation: 'vertical'
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        MDSeparator:
+        # App Bar
+        MDBoxLayout:
+            padding: '5dp'
+            adaptive_height: True
+
+            MDIconButton:
+                icon: 'account'
+
+            MDLabel:
+                text: 'Goals'
+                halign: 'center'
+                valign: 'top'
+                font_size: 25
+                font_name: 'assets/Signika-Light.ttf'
+
+            MDIconButton:
+                icon: 'chevron-right'
+        MDSeparator:
+        # navigatoin screens
+        MDBottomNavigation:
+
+            MDBottomNavigationItem:
+                name: "Home Screen"
+                icon: 'home'
+                ScrollView:
+                    bar_width: 1
+                    MDBoxLayout:
+                        adaptive_height: True
+                        MDLabel:
+                            text: "Home Screen stuff"
+                            halign: 'center'
+
+            MDBottomNavigationItem:
+                name: "Search Screen"
+                icon: 'magnify'
+                MDLabel:
+                    text: "Search Screen stuff"
+                    halign: 'center'
+                       
+            MDBottomNavigationItem:
+                name: "Library Screen"
+                icon: 'library'
+                MDLabel:
+                    text: "Library Screen stuff"
+                    halign: 'center'
+
+            MDBottomNavigationItem:
+                name: "Account Screen"
+                icon: 'account-circle'
+                MDLabel:
+                    text: "Account Screen stuff"
+                    halign: 'center'
+
+            MDBottomNavigationItem:
+                name: "Menu Screen"
+                icon: 'menu'
+                MDLabel:
+                    text: "Menu Screen stuff"
+                    halign: 'center'

@@ -1,12 +1,20 @@
-import module1
+from kivy.core.window import Window
+from kivy.lang import Builder
+from kivymd.app import MDApp
+from kivymd.uix.screen import MDScreen
 
-if __name__ == '__main__':
 
-    """main function to run all module functoins from
-    """    
+class HomePage(MDScreen):
+    pass
+        
 
-    grade =int(input("Enter Grade : "))
+class MainApp(MDApp):
+    def build(self):
+        Window.size = [300, 600]
+        self.theme_cls_primary_palette = "LightBlue"
+        Builder.load_file('ScreensDesign.kv')
+        return HomePage()
 
-    gradepoint = module1.letter_point_Ass(grade)
-    print (gradepoint)
 
+if __name__ == "__main__":
+    MainApp().run()
