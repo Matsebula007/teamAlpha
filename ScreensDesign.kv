@@ -17,24 +17,44 @@
                 halign: 'center'
                 valign: 'top'
                 font_size: 25
-                font_name: 'assets/Signika-Light.ttf'
+                font_name: 'assets/Signika-Medium.ttf'
 
             MDIconButton:
                 icon: 'chevron-right'
         MDSeparator:
         # navigatoin screens
         MDBottomNavigation:
-
             MDBottomNavigationItem:
                 name: "Home Screen"
                 icon: 'home'
                 ScrollView:
-                    bar_width: 1
+                    size: "100dp","80dp"
+                    pos_hint: {"center_x": 0.0}
+                    bar_width: 2
                     MDBoxLayout:
                         adaptive_height: True
-                        MDLabel:
-                            text: "Home Screen stuff"
-                            halign: 'center'
+                        orientation: "vertical"
+
+                        MDBoxLayout:
+                            id: box
+                            size: "100dp","80dp"
+                            padding: "5dp"
+                            adaptive_size: True
+                            spacing: "5dp"
+                            orientation: "vertical"
+                            pos_hint: {"center_x": .5}
+
+                            MDBoxLayout:
+                                size: "100dp","80dp"
+                                adaptive_width: True
+                                size_hint_y: None
+                                height: "56dp"
+                                spacing: "5dp"
+                                pos_hint: {"center_x": 1.0}
+                                MDLabel:
+                                    text: "shit "
+                                    size: "100dp","80dp"
+                                    md_bg_color: 1, 0, 0, 1
 
             MDBottomNavigationItem:
                 name: "Search Screen"
