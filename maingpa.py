@@ -5,22 +5,25 @@ from kivymd.uix.screen import MDScreen
 import json
 
 
-'''
+
 class HomePage(MDScreen):
     pass
 
 class MainApp(MDApp):
     def build(self):
         Window.size = [300, 600]
-        self.theme_cls_primary_palette = "LightBlue"
+        self.theme_cls_primary_palette = "Dark"
+        self.theme_cls.accent_dark_hue = "100"
         Builder.load_file('ScreensDesign.kv')
         return HomePage()
 
-'''
-
+class ContentNavigationDrawer():
+    pass
 if __name__ == "__main__":
-    #MainApp().run()
-    #read database and pass as string    
+    MainApp().run()
+    #read database and pass as string 
+
+    '''   
     database = open('assets/course_database.json','r')
     data = database.read()
     #pass string as dictionary
@@ -35,7 +38,7 @@ if __name__ == "__main__":
     test1mar = datar['sheets'][0]['lines'][0]['course_ass'][0]['ass_number'][0]['Mark']
     database.close()
     print( test1name ," : ", test1mar)
-    
+    '''
 
 
     

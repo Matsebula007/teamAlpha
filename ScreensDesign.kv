@@ -27,34 +27,90 @@
             MDBottomNavigationItem:
                 name: "Home Screen"
                 icon: 'home'
-                ScrollView:
-                    size: "100dp","80dp"
-                    pos_hint: {"center_x": 0.0}
-                    bar_width: 2
-                    MDBoxLayout:
-                        adaptive_height: True
-                        orientation: "vertical"
 
-                        MDBoxLayout:
-                            id: box
-                            size: "100dp","80dp"
-                            padding: "5dp"
-                            adaptive_size: True
-                            spacing: "5dp"
-                            orientation: "vertical"
-                            pos_hint: {"center_x": .5}
+                MDNavigationLayout:
+                    ScreenManager:
+                        Screen:
+                            BoxLayout:
+				                orientation: 'vertical'
+                                MDTopAppBar:
+                                    id : toolbar
+                                    pos_hint: {'top': True}
+                                    title: 'Select contact'
+                                    right_action_items : [['magnify', lambda x : print('search')], ['dots-vertical', lambda x : print(x)]]
+                                    left_action_items : [['keyboard-backspace', lambda x : app.change_screen('home screen', 'back')]]
+                                ScrollView:
+                                    size: self.size
+                                    GridLayout:
+                                        size_hint_y: None
+                                        height: self.minimum_height
+                                        width: self.minimum_width
+                                        cols: 2
+                                        padding: "10dp"
+                                        spacing: "10dp"
+                                        MDCard:
+                                            orientation: 'vertical'
+                                            md_bg_color: "teal"
+                                            focus_color: "grey"
+                                            unfocus_color: "teal"
+                                            padding: '8dp'
+                                            size_hint: 1,None
+                                            height: '210dp'
+                                            border_radius: 10
+                                            radius: [5]
+                                        MDCard:
+                                            orientation: 'vertical'
+                                            md_bg_color: "teal"
+                                            focus_color: "grey"
+                                            unfocus_color: "teal"
+                                            padding: '8dp'
+                                            size_hint: 1,None
+                                            height: '210dp'
+                                            border_radius: 10
+                                            radius: [5]
+                                        MDCard:
+                                            orientation: 'vertical'
+                                            md_bg_color: "teal"
+                                            focus_color: "grey"
+                                            unfocus_color: "teal"
+                                            padding: '8dp'
+                                            size_hint: 1,None
+                                            height: '210dp'
+                                            border_radius: 10
+                                            radius: [5]
+                                        MDCard:
+                                            orientation: 'vertical'
+                                            md_bg_color: "teal"
+                                            focus_color: "grey"
+                                            unfocus_color: "teal"
+                                            padding: '8dp'
+                                            size_hint: 1,None
+                                            height: '210dp'
+                                            border_radius: 10
+                                            radius: [5]
+                                        MDCard:
+                                            orientation: 'vertical'
+                                            md_bg_color: "teal"
+                                            focus_color: "grey"
+                                            unfocus_color: "teal"
+                                            padding: '8dp'
+                                            size_hint: 1,None
+                                            height: '210dp'
+                                            border_radius: 10
+                                            radius: [5]
+                                        MDCard:
+                                            orientation: 'vertical'
+                                            md_bg_color: "teal"
+                                            focus_color: "grey"
+                                            unfocus_color: "teal"
+                                            padding: '8dp'
+                                            size_hint: 1,None
+                                            height: '210dp'
+                                            border_radius: 10
+                                            radius: [5]
 
-                            MDBoxLayout:
-                                size: "100dp","80dp"
-                                adaptive_width: True
-                                size_hint_y: None
-                                height: "56dp"
-                                spacing: "5dp"
-                                pos_hint: {"center_x": 1.0}
-                                MDLabel:
-                                    text: "shit "
-                                    size: "100dp","80dp"
-                                    md_bg_color: 1, 0, 0, 1
+
+
 
             MDBottomNavigationItem:
                 name: "Search Screen"
@@ -73,9 +129,104 @@
             MDBottomNavigationItem:
                 name: "Account Screen"
                 icon: 'account-circle'
-                MDLabel:
-                    text: "Account Screen stuff"
-                    halign: 'center'
+                MDNavigationLayout:
+                    ScreenManager:
+                        Screen:
+                            BoxLayout:
+				                orientation: 'vertical'
+                                MDTopAppBar:
+                                    id : toolbar
+                                    pos_hint: {'top': True}
+                                    title: 'Select contact'
+                                    right_action_items : [['magnify', lambda x : print('search')], ['dots-vertical', lambda x : print(x)]]
+                                    left_action_items : [['keyboard-backspace', lambda x : app.change_screen('home screen', 'back')]]
+                                ScrollView:
+                                    MDList:
+                                        OneLineAvatarIconListItem:
+                                            text : 'New group'
+                                            IconLeftWidget:
+                                                icon : 'account-multiple'
+                                                md_bg_color : (0.145, 0.827, 0.4, 1)
+                                                size_hint: (1, 1)
+                                        OneLineAvatarIconListItem:
+                                            text : 'New contact'
+                                            IconLeftWidget:
+                                                icon : 'account-plus'
+                                                md_bg_color : (0.145, 0.827, 0.4, 1)
+                                                size_hint: (1, 1)								
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Andrew'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman'						
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Gabbard'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman-outline'						
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Kevin'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'	
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman'					
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Dojo'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman-outline'						
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Markham'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman'						
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Daniel'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'	
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman-outline'					
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Krish'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman-outline'						
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Erik'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman'						
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Julian'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'	
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman'					
+                                        TwoLineAvatarIconListItem:
+                                            text : 'Jeff'
+                                            secondary_text : 'Hey there! I am using WhatsApp.'
+                                            on_press:
+                                                app.change_screen('chat screen', title = self.text)
+                                            IconLeftWidget:
+                                                icon : 'face-woman-outline'
+
+                    
+
 
             MDBottomNavigationItem:
                 name: "Menu Screen"
