@@ -2,6 +2,7 @@ from kivy.core.window import Window
 from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
+from kivy.uix.screenmanager import ScreenManager
 import json
 
 
@@ -11,14 +12,15 @@ class HomePage(MDScreen):
 
 class MainApp(MDApp):
     def build(self):
+        screen_manager = ScreenManager()
+        screen_manager.add_widget(Builder.load_file("Screens/Main.kv"))
+        screen_manager.add_widget(Builder.load_file("Screens/Login.kv"))
+        screen_manager.add_widget(Builder.load_file("Screens/SignUp.kv"))
+        #screen_manager.add_widget(Builder.load_file('Screens/PageScreens.kv'))
         Window.size = [300, 600]
-        self.theme_cls_primary_palette = "Dark"
-        self.theme_cls.accent_dark_hue = "100"
-        Builder.load_file('ScreensDesign.kv')
-        return HomePage()
+        return screen_manager
 
-class ContentNavigationDrawer():
-    pass
+
 if __name__ == "__main__":
     MainApp().run()
     #read database and pass as string 
