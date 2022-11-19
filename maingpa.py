@@ -19,29 +19,31 @@ class TodoCard(FakeRectangularElevationBehavior,MDFloatLayout):
 
 class MainApp(MDApp):
     def build(self):
+        global screen_manager
         self.title ="Ä Goals"
         screen_manager = ScreenManager()
         #screen_manager.add_widget(Builder.load_file("Screens/Main.kv"))
         #screen_manager.add_widget(Builder.load_file("Screens/Login.kv"))
         #screen_manager.add_widget(Builder.load_file("Screens/SignUp.kv"))
         screen_manager.add_widget(Builder.load_file('Screens/PageScreens.kv'))
+        screen_manager.add_widget(Builder.load_file('Screens/todo.kv'))
         Window.size = [300, 600]
-
-        def on_start(self):
-            today = date.today()
-            wd = date.weekday(today)
-            days = ['Monday','Tuesday','Wednesday','Thursday','Friday']
-            year = str(datetime.datetime.now().year)
-            month = str(datetime.datetime.now().strftime("%b"))
-            day = str(datetime.datetime.now().strftime("%d"))
-            screen_manager.get_screen("todoScreen").date.text = f"{days[wd]}, {day} {month} {year}"
-        
-        def add_todo(self):
-            screen_manager.get_screen("todoScreen").todo_list.add_widget(TodoCard)
-
-
-
         return screen_manager
+
+    def on_start(self):
+        today = date.today()
+        wd = date.weekday(today)
+        days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday', 'Sunday']
+        year = str(datetime.datetime.now().year)
+        month = str(datetime.datetime.now().strftime("%b"))
+        day = str(datetime.datetime.now().strftime("%d"))
+        screen_manager.get_screen("todoScreen").date.text = f"{days[wd]}, {day} {month} {year}"
+    
+    def add_todo(self):
+        screen_manager.get_screen("todoScreen").todo_list.add_widget(TodoCard())
+
+
+        
 
 
 if __name__ == "__main__":
