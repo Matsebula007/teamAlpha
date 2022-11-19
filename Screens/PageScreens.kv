@@ -1,4 +1,5 @@
 MDScreen:
+    name:"Home"
     orientation: 'vertical'
     MDBoxLayout:
         orientation: 'vertical'
@@ -8,15 +9,15 @@ MDScreen:
         MDBoxLayout:
             padding: '5dp'
             adaptive_height: True
-
             MDIconButton:
                 icon: 'account'
 
             MDLabel:
-                text: 'Goals'
+                text: 'A Goals'
                 halign: 'center'
                 valign: 'top'
-                font_size: 25
+                font_size: "25dp"
+                color: rgba(52,0,231,255)
                 font_name: 'assets/Signika-Medium.ttf'
 
             MDIconButton:
@@ -27,7 +28,6 @@ MDScreen:
             MDBottomNavigationItem:
                 name: "Home Screen"
                 icon: 'home'
-
                 MDNavigationLayout:
                     ScreenManager:
                         Screen:

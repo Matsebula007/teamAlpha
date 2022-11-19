@@ -12,11 +12,12 @@ class HomePage(MDScreen):
 
 class MainApp(MDApp):
     def build(self):
+        self.title ="Ä Goals"
         screen_manager = ScreenManager()
         screen_manager.add_widget(Builder.load_file("Screens/Main.kv"))
         screen_manager.add_widget(Builder.load_file("Screens/Login.kv"))
         screen_manager.add_widget(Builder.load_file("Screens/SignUp.kv"))
-        #screen_manager.add_widget(Builder.load_file('Screens/PageScreens.kv'))
+        screen_manager.add_widget(Builder.load_file('Screens/PageScreens.kv'))
         Window.size = [300, 600]
         return screen_manager
 
