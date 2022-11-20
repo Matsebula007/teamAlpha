@@ -10,7 +10,7 @@
         md_bg_color: 1, 170/255,23/255,1
     MDLabel:
     #read user input and append to json file
-        text:"Task 1"
+        text:root.title
         markup: True
         font_name: 'assets/Sono_Monospace-Medium.ttf'
         font_size:"20sp"
@@ -22,10 +22,11 @@
         unselected_color: 1,170/255,23/255,1
         selected_color: 0,179/255,0,1
         pos_hint:{"center_x":.95,"center_y": .8}
+        on_active: app.on_complete(*args, description,bar)
     MDLabel:
         #reead data from json database
         id:description
-        text:"submit Assignment"
+        text:root.description
         font_name:'assets/Sono_Monospace-Regular.ttf'
         markup:True
         size_hint_x: .9
@@ -54,8 +55,10 @@ MDScreen:
             pos_hint:{"center_x":.89,"center_y": .925}
             user_font_size:"30spp"
             md_bg_color: 1,1,1,1
-            text_color:1,1,1,1
-            on_release:app.add_todo()
+            text_color:1,170/255,23/255,1
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "add_todo"
         ScrollView:
             do_scroll_y:True
             do_scroll_x:False
@@ -71,3 +74,12 @@ MDScreen:
                 size_hint_y:None
                 padding:15,10
                 spacing:15,10
+        MDBottomAppBar:
+            md_bg_color:227/255,162/255,23/255,1
+            MDTopAppBar:
+                title:"Menu"
+                icon:'account'
+                type:"bottom"
+                left_action_items:[["home", lambda x: app.callback(x),"Home"]]
+                mode:"free-end"
+                icon_color: 2/255,10/255,20/255,1
