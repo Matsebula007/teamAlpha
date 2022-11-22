@@ -1,5 +1,8 @@
 MDScreen:
     name:"SignUp"
+    usr_email: usr_email
+    usr_name: usr_name
+    usr_pass: usr_pass
     MDFloatLayout:
         md_bg_color: 1,1,1,1
         MDIconButton:
@@ -31,6 +34,7 @@ MDScreen:
             size_hint: .7,.07
             pos_hint:{"center_x": .5, "center_y": .66}
             TextInput:
+                id:usr_name
                 hint_text: "Username"
                 font_name: "assets/Sono-Regular.ttf"
                 size_hint_y: .75
@@ -50,6 +54,7 @@ MDScreen:
             size_hint: .7,.07
             pos_hint:{"center_x": .5, "center_y": .56}
             TextInput:
+                id:usr_email
                 hint_text: "Email"
                 font_name: "assets/Sono-Regular.ttf"
                 size_hint_y: .75
@@ -70,6 +75,7 @@ MDScreen:
             size_hint: .7,.07
             pos_hint:{"center_x": .5, "center_y": .46}
             TextInput:
+                id:usr_pass
                 hint_text: "Password"
                 font_name: "assets/Sono-Regular.ttf"
                 size_hint_y: .75
@@ -92,8 +98,7 @@ MDScreen:
             background_color: 0,0,0,0
             font_name: "assets/Sono_Monospace-Medium.ttf"
             on_press: 
-                root.manager.transition.direction = "left"
-                root.manager.current = "Home"
+                app.userSignUp(usr_name,usr_email,usr_pass)
             canvas.before:
                 Color:
                     rgba:rgba(52,0,231,255)

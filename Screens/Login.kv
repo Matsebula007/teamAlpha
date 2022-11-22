@@ -1,5 +1,8 @@
 MDScreen:
     name:"Login"
+    usr_Username:usr_Username
+    usr_password:usr_password
+    
     MDFloatLayout:
         md_bg_color: 1,1,1,1
         MDIconButton:
@@ -31,6 +34,7 @@ MDScreen:
             size_hint: .7,.07
             pos_hint:{"center_x": .5, "center_y": .63}
             TextInput:
+                id:usr_Username
                 hint_text: "Username"
                 font_name: "assets/Sono-Regular.ttf"
                 size_hint_y: .75
@@ -51,6 +55,7 @@ MDScreen:
             size_hint: .7,.07
             pos_hint:{"center_x": .5, "center_y": .50}
             TextInput:
+                id:usr_password
                 hint_text: "Password"
                 font_name: "assets/Sono-Regular.ttf"
                 size_hint_y: .75
@@ -73,8 +78,7 @@ MDScreen:
             background_color: 0,0,0,0
             font_name: "assets/Sono_Monospace-Medium.ttf"
             on_press: 
-                root.manager.transition.direction = "left"
-                root.manager.current = "Home"
+                app.userlogin(usr_Username,usr_password)
             canvas.before:
                 Color:
                     rgba:rgba(52,0,231,255)
